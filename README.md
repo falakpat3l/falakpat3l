@@ -9,40 +9,44 @@
 </p>
 
 <p align="center">
-  <a href="https://falakpatel.com"><img src="https://img.shields.io/badge/Website-falakpatel.com-7aa2f7?style=for-the-badge&logo=googlechrome&logoColor=white" /></a>
-  <a href="https://linkedin.com/in/falak-pat3l"><img src="https://img.shields.io/badge/LinkedIn-falak--pat3l-0A66C2?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D" /></a>
-  <a href="https://x.com/falakpat3l"><img src="https://img.shields.io/badge/X-@falakpat3l-000000?style=for-the-badge&logo=x&logoColor=white" /></a>
-  <img src="https://komarev.com/ghpvc/?username=falakpat3l&color=7aa2f7&style=for-the-badge&label=%F0%9F%91%81%EF%B8%8F+PROFILE+VIEWS" />
+  <a href="https://falakpatel.com" title="Website"><img src="assets/icons/website.svg" width="40" alt="Website" /></a>&nbsp;
+  <a href="https://linkedin.com/in/falak-pat3l" title="LinkedIn"><img src="assets/icons/linkedin.svg" width="40" alt="LinkedIn" /></a>&nbsp;
+  <a href="https://x.com/falakpat3l" title="X"><img src="assets/icons/x.svg" width="40" alt="X" /></a>
+</p>
+
+<p align="center">
+  <img src="assets/icons/views.svg" width="28" alt="Profile views" align="top" />
+  <img src="https://komarev.com/ghpvc/?username=falakpat3l&color=24283b&labelColor=24283b&style=for-the-badge&label=%E2%80%8B" alt="views" />
 </p>
 
 ---
 
-### 🧬 About me
+### <img src="assets/icons/about.svg" width="22" alt="" /> About me
 
 I move ideas from the lab bench to working prototypes.
 
-- 💊 **Pharmacist by training:** B.Pharm (Pune University), registered pharmacist, regulatory and QA internships (FDA/EMA dossiers, GMP, GCP/ICH)
-- 🦿 **Medical device engineer:** M.Tech in Medical Device Innovation at IIT Hyderabad, built around the StrideMate exoskeleton
-- 🏥 **Clinic first:** 180+ hours of clinical immersion in orthopaedics and neurology before designing anything
-- 🤖 **Now:** orchestrating AI workflows where LLMs, image models and vision models check each other's work
-- 🌏 **Interested in:** digital health, healthy ageing, and how innovation actually reaches patients
-- 🗣️ **Languages:** English, Hindi, Gujarati, Marathi (plus beginner German and Japanese)
+- <img src="assets/icons/pill.svg" width="16" alt="" /> **Pharmacist by training:** B.Pharm (Pune University), registered pharmacist, regulatory and QA internships (FDA/EMA dossiers, GMP, GCP/ICH)
+- <img src="assets/icons/device.svg" width="16" alt="" /> **Medical device engineer:** M.Tech in Medical Device Innovation at IIT Hyderabad, built around the StrideMate exoskeleton
+- <img src="assets/icons/clinic.svg" width="16" alt="" /> **Clinic first:** 180+ hours of clinical immersion in orthopaedics and neurology before designing anything
+- <img src="assets/icons/ai.svg" width="16" alt="" /> **Now:** orchestrating AI workflows where LLMs, image models and vision models check each other's work
+- <img src="assets/icons/interests.svg" width="16" alt="" /> **Interested in:** digital health, healthy ageing, and how innovation actually reaches patients
+- <img src="assets/icons/languages.svg" width="16" alt="" /> **Languages:** English, Hindi, Gujarati, Marathi (plus beginner German and Japanese)
 
 ---
 
-### 🚀 Featured projects
+### <img src="assets/icons/projects.svg" width="22" alt="" /> Featured projects
 
 | Project | What it is | Stack |
 | --- | --- | --- |
-| 🦿 [**StrideMate exoskeleton**](https://github.com/falakpat3l/stridemate-exoskeleton) | Low-cost walking-assist exoskeleton: under 4 kg, target cost about ₹40k vs ₹5 lakh to 60 lakh imported | ESP32 · C++ |
-| 📈 [**exo-telemetry-tunnel**](https://github.com/falakpat3l/exo-telemetry-tunnel) | Live gait dashboard, shareable over a Cloudflare tunnel, runs with no hardware | Python · WebSockets · Cloudflare |
-| 🛠️ [**StrideMate CAD**](https://github.com/falakpat3l/Stridemate_3D_files_IITH) | Fusion 360, STEP and STL files: exoskeleton parts, prostheses, compliant thumb designs | Fusion 360 · 3D printing · CNC |
-| ✨ [**persona-pipeline**](https://github.com/falakpat3l/persona-pipeline) | Multi-stage AI orchestration: topic to on-brand image, caption and hashtags, with a vision critic | Python · Gemini · Stable Diffusion |
-| 🧪 [**qr-nfc-clinical-trials**](https://github.com/falakpat3l/qr-nfc-clinical-trials) | B.Pharm thesis: clinical trial management with QR codes and NFC tags | Python |
+| [**StrideMate exoskeleton**](https://github.com/falakpat3l/stridemate-exoskeleton) | Low-cost walking-assist exoskeleton: under 4 kg, target cost about ₹40k vs ₹5 lakh to 60 lakh imported | ESP32 · C++ |
+| [**exo-telemetry-tunnel**](https://github.com/falakpat3l/exo-telemetry-tunnel) | Live gait dashboard, shareable over a Cloudflare tunnel, runs with no hardware | Python · Cloudflare |
+| [**StrideMate CAD**](https://github.com/falakpat3l/Stridemate_3D_files_IITH) | Fusion 360, STEP and STL files: exoskeleton parts, prostheses, compliant thumb designs | Fusion 360 · 3D printing · CNC |
+| [**persona-pipeline**](https://github.com/falakpat3l/persona-pipeline) | Multi-stage AI orchestration: topic to on-brand image, caption and hashtags, with a vision critic | Python · Gemini · Stable Diffusion |
+| [**qr-nfc-clinical-trials**](https://github.com/falakpat3l/qr-nfc-clinical-trials) | B.Pharm thesis: clinical trial management with QR codes and NFC tags | Python |
 
 ---
 
-### 🛠️ Tech stack
+### <img src="assets/icons/stack.svg" width="22" alt="" /> Tech stack
 
 **Languages & code**
 
