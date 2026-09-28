@@ -10,9 +10,9 @@
 
 <p align="center">
   <a href="https://falakpatel.com"><img src="https://img.shields.io/badge/Website-falakpatel.com-7aa2f7?style=for-the-badge&logo=googlechrome&logoColor=white" /></a>
-  <a href="https://linkedin.com/in/falak-pat3l"><img src="https://img.shields.io/badge/LinkedIn-falak--pat3l-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+  <a href="https://linkedin.com/in/falak-pat3l"><img src="https://img.shields.io/badge/LinkedIn-falak--pat3l-0A66C2?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D" /></a>
   <a href="https://x.com/falakpat3l"><img src="https://img.shields.io/badge/X-@falakpat3l-000000?style=for-the-badge&logo=x&logoColor=white" /></a>
-  <img src="https://komarev.com/ghpvc/?username=falakpat3l&color=7aa2f7&style=for-the-badge&label=PROFILE+VIEWS" />
+  <img src="https://komarev.com/ghpvc/?username=falakpat3l&color=7aa2f7&style=for-the-badge&label=%F0%9F%91%81%EF%B8%8F+PROFILE+VIEWS" />
 </p>
 
 ---
@@ -34,7 +34,7 @@ I move ideas from the lab bench to working prototypes.
 
 | Project | What it is | Stack |
 | --- | --- | --- |
-| 🦿 [**StrideMate exoskeleton**](https://github.com/falakpat3l/stridemate-exoskeleton) | Low-cost walking-assist exoskeleton: under 4 kg, target cost about ₹40k vs ₹5 to 60 lakh imported | ESP32 · C++ · IMU + ToF sensing |
+| 🦿 [**StrideMate exoskeleton**](https://github.com/falakpat3l/stridemate-exoskeleton) | Low-cost walking-assist exoskeleton: under 4 kg, target cost about ₹40k vs ₹5 lakh to 60 lakh imported | ESP32 · C++ |
 | 📈 [**exo-telemetry-tunnel**](https://github.com/falakpat3l/exo-telemetry-tunnel) | Live gait dashboard, shareable over a Cloudflare tunnel, runs with no hardware | Python · WebSockets · Cloudflare |
 | 🛠️ [**StrideMate CAD**](https://github.com/falakpat3l/Stridemate_3D_files_IITH) | Fusion 360, STEP and STL files: exoskeleton parts, prostheses, compliant thumb designs | Fusion 360 · 3D printing · CNC |
 | ✨ [**persona-pipeline**](https://github.com/falakpat3l/persona-pipeline) | Multi-stage AI orchestration: topic to on-brand image, caption and hashtags, with a vision critic | Python · Gemini · Stable Diffusion |
@@ -50,8 +50,6 @@ I move ideas from the lab bench to working prototypes.
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" />
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
-  <img src="https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&logo=pydantic&logoColor=white" />
-  <img src="https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white" />
 </p>
 
 **AI & orchestration**
@@ -67,7 +65,6 @@ I move ideas from the lab bench to working prototypes.
 <p>
   <img src="https://img.shields.io/badge/ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white" />
   <img src="https://img.shields.io/badge/Arduino-00878F?style=for-the-badge&logo=arduino&logoColor=white" />
-  <img src="https://img.shields.io/badge/IMU%20%26%20ToF%20Sensors-24283b?style=for-the-badge" />
 </p>
 
 **CAD & fabrication**
@@ -97,33 +94,6 @@ I move ideas from the lab bench to working prototypes.
 </p>
 
 ---
-
-### 📊 GitHub stats
-
-<p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=falakpat3l&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=falakpat3l&layout=compact&theme=tokyonight&hide_border=true" />
-</p>
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=falakpat3l&theme=tokyonight&hide_border=true" />
-</p>
-
-<p align="center">
-  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=falakpat3l&theme=tokyo-night&hide_border=true&area=true" />
-</p>
-
----
-
-### 🐍 Contribution snake
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/falakpat3l/falakpat3l/output/github-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/falakpat3l/falakpat3l/output/github-snake.svg" />
-    <img alt="contribution snake" src="https://raw.githubusercontent.com/falakpat3l/falakpat3l/output/github-snake.svg" />
-  </picture>
-</p>
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:7aa2f7,50:24283b,100:1a1b27&height=100&section=footer" alt="footer" />
