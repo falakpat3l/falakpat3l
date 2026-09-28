@@ -59,7 +59,7 @@ I move ideas from the lab bench to working prototypes.
 <p>
   <img src="https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white" />
   <img src="https://img.shields.io/badge/Stable%20Diffusion-A020F0?style=for-the-badge&logoColor=white" />
-  <img src="https://img.shields.io/badge/LLM%20Pipelines-24283b?style=for-the-badge&logo=databricks&logoColor=white" />
+  <img src="https://img.shields.io/badge/LLM%20Pipelines-24283b?style=for-the-badge" />
 </p>
 
 **Hardware & embedded**
@@ -74,7 +74,7 @@ I move ideas from the lab bench to working prototypes.
 
 <p>
   <img src="https://img.shields.io/badge/Fusion%20360-FF6B00?style=for-the-badge&logo=autodesk&logoColor=white" />
-  <img src="https://img.shields.io/badge/3D%20Printing-24283b?style=for-the-badge&logo=prusa3d&logoColor=white" />
+  <img src="https://img.shields.io/badge/3D%20Printing-24283b?style=for-the-badge" />
   <img src="https://img.shields.io/badge/CNC%20Machining-24283b?style=for-the-badge" />
 </p>
 
