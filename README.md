@@ -14,7 +14,7 @@ AI workflows that connect models, tools and people.
 
 | Project | What it is |
 | --- | --- |
-| [StrideMate exoskeleton](https://github.com/falakpat3l/stridemate-exoskeleton) | Dual-ESP32 walking-assist exoskeleton (under 4 kg, target cost about ₹40k vs ₹5 to 60 lakh imported): firmware and Wi-Fi dashboard |
+| [StrideMate exoskeleton](https://github.com/falakpat3l/stridemate-exoskeleton) | Dual-ESP32 walking-assist exoskeleton (under 4 kg, target cost about ₹40k vs ₹5 lakh to 60 lakh imported): firmware and Wi-Fi dashboard |
 | [exo-telemetry-tunnel](https://github.com/falakpat3l/exo-telemetry-tunnel) | Live gait dashboard, shareable over a Cloudflare tunnel, runs with no hardware |
 | [StrideMate CAD](https://github.com/falakpat3l/Stridemate_3D_files_IITH) | Fusion 360, STEP and STL files: exoskeleton parts, prostheses, compliant thumb designs |
 | [persona-pipeline](https://github.com/falakpat3l/persona-pipeline) | AI orchestration pipeline: topic to on-brand image, caption and hashtags, built in daily milestones |
