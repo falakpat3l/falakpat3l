@@ -1,3 +1,3 @@
 Line icons are from Lucide (https://lucide.dev), ISC License,
 Copyright (c) Lucide Contributors. Recoloured for this profile.
-X glyph from Simple Icons (https://simpleicons.org), CC0 1.0.
+X and Google Scholar glyphs from Simple Icons (https://simpleicons.org), CC0 1.0.
