@@ -1,19 +1,26 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg">
-  <img src="assets/header-light.svg" width="840" alt="Falak Ameesh Patel. Medical device design: assistive and diagnostic hardware. M.Tech Medical Device Innovation, IIT Hyderabad. B.Pharm, SPPU. Registered pharmacist. Bharuch, Gujarat.">
-</picture>
+<!-- Made by folio/build.py from folio/profile.json. Edit those, then run: python3 folio/build.py -->
 
-<p>
-  <a href="https://falakpatel.com" title="Website"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/web-dark.svg"><img src="assets/icons/web-light.svg" width="22" alt="Website"></picture></a>&nbsp;&nbsp;&nbsp;
-  <a href="https://linkedin.com/in/falak-pat3l" title="LinkedIn"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/linkedin-dark.svg"><img src="assets/icons/linkedin-light.svg" width="22" alt="LinkedIn"></picture></a>&nbsp;&nbsp;&nbsp;
-  <a href="https://scholar.google.com/citations?user=s6-Bs10AAAAJ" title="Google Scholar"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/scholar-dark.svg"><img src="assets/icons/scholar-light.svg" width="22" alt="Google Scholar"></picture></a>&nbsp;&nbsp;&nbsp;
-  <a href="https://x.com/falakpat3l" title="X"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/x-dark.svg"><img src="assets/icons/x-light.svg" width="22" alt="X"></picture></a>&nbsp;&nbsp;&nbsp;
-  <img src="https://hits.sh/github.com/falakpat3l.svg?extraCount=101&style=flat-square&label=%20&labelColor=000000&color=000000&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI%2BPHBhdGggZD0iTTIuMDYyIDEyLjM0OGExIDEgMCAwIDEgMC0uNjk2IDEwLjc1IDEwLjc1IDAgMCAxIDE5Ljg3NiAwIDEgMSAwIDAgMSAwIC42OTYgMTAuNzUgMTAuNzUgMCAwIDEtMTkuODc2IDAiIC8%2BCiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMyIgLz48L2c%2BPC9zdmc%2B" height="22" alt="profile views">
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/name-dark.png" /><img src="assets/folio/name-light.png" alt="Falak Ameesh Patel. Medical device design: assistive and diagnostic hardware." width="744" height="80" /></picture></p>
+<p align="center"><picture><source media="(min-width: 1012px) and (prefers-color-scheme: dark)" srcset="assets/folio/bio-wide-dark.png" width="744" height="54" /><source media="(min-width: 1012px)" srcset="assets/folio/bio-wide-light.png" width="744" height="54" /><source media="(prefers-color-scheme: dark)" srcset="assets/folio/bio-narrow-dark.png" /><img src="assets/folio/bio-narrow-light.png" alt="Pharmacist and medical device engineer (M.Tech, IIT Hyderabad). I move ideas from the lab bench to working prototypes, and I build privacy-first health tech." width="320" height="100" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/divider-dark.png" /><img src="assets/folio/divider-light.png" alt="" width="160" height="18" /></picture></p>
+
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/label-building-now-dark.png" /><img src="assets/folio/label-building-now-light.png" alt="Building now" width="400" height="34" /></picture></p>
+<p align="center"><a href="https://github.com/falakpat3l/padachar"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/card-padachar-dark.png" /><img src="assets/folio/card-padachar-light.png" alt="padachar: Offline step and food tracker for Android. No internet, no ads, no account." width="248" height="300" align="top" /></picture></a><a href="https://github.com/falakpat3l/ink-health-watch"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/card-ink-health-watch-dark.png" /><img src="assets/folio/card-ink-health-watch-light.png" alt="ink-health-watch: Open-source e-paper health watch on the ESP32-S3: steps, cadence and reminders." width="248" height="300" align="top" /></picture></a><a href="https://github.com/falakpat3l/exo-telemetry-tunnel"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/card-exo-telemetry-dark.png" /><img src="assets/folio/card-exo-telemetry-light.png" alt="exo-telemetry-tunnel: Live gait dashboard for StrideMate, shared on a public link with one command." width="248" height="300" align="top" /></picture></a></p>
+
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/label-earlier-work-dark.png" /><img src="assets/folio/label-earlier-work-light.png" alt="Earlier work" width="400" height="34" /></picture></p>
+<p align="center"><a href="https://github.com/falakpat3l/stridemate-exoskeleton"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/card-stridemate-dark.png" /><img src="assets/folio/card-stridemate-light.png" alt="StrideMate exoskeleton: Low-cost walking-assist exoskeleton: two ESP32s, firmware and a Wi-Fi dashboard. M.Tech, IIT Hyderabad." width="372" height="120" align="top" /></picture></a><a href="https://github.com/falakpat3l/qr-nfc-clinical-trials"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/card-qr-nfc-dark.png" /><img src="assets/folio/card-qr-nfc-light.png" alt="qr-nfc-clinical-trials: B.Pharm thesis: recording dosing events with QR codes and NFC. Runs offline in the browser." width="372" height="120" align="top" /></picture></a><br /><a href="https://github.com/falakpat3l/Stridemate_3D_files_IITH"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/card-cad-dark.png" /><img src="assets/folio/card-cad-light.png" alt="StrideMate 3D files: Fusion 360, STEP and STL, ready to print." width="248" height="92" align="top" /></picture></a><a href="https://github.com/falakpat3l/persona-pipeline"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/card-persona-dark.png" /><img src="assets/folio/card-persona-light.png" alt="persona-pipeline: AI pipeline where a vision model checks each image." width="248" height="92" align="top" /></picture></a><a href="https://falakpatel.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/card-website-dark.png" /><img src="assets/folio/card-website-light.png" alt="falakpatel.com: My website, with the parts in 3D." width="248" height="92" align="top" /></picture></a></p>
+
+<p align="center">
+  <a href="https://falakpatel.com" title="Website"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/web-dark.svg" /><img src="assets/icons/web-light.svg" width="22" alt="Website" /></picture></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://linkedin.com/in/falak-pat3l" title="LinkedIn"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/linkedin-dark.svg" /><img src="assets/icons/linkedin-light.svg" width="22" alt="LinkedIn" /></picture></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://scholar.google.com/citations?user=s6-Bs10AAAAJ" title="Google Scholar"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/scholar-dark.svg" /><img src="assets/icons/scholar-light.svg" width="22" alt="Google Scholar" /></picture></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://x.com/falakpat3l" title="X"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/x-dark.svg" /><img src="assets/icons/x-light.svg" width="22" alt="X" /></picture></a>
 </p>
 
-### About me
+<p align="center"><a href="https://github.com/sponsors/falakpat3l"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/sponsor-dark.png" /><img src="assets/folio/sponsor-light.png" alt="Sponsor me on GitHub" width="132" height="40" /></picture></a></p>
 
-I move ideas from the lab bench to working prototypes.
+<details>
+<summary>More about me</summary>
 
 - <picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/pill-dark.svg"><img src="assets/icons/pill-light.svg" width="16" alt=""></picture> **Pharmacist by training:** B.Pharm (Pune University), registered pharmacist, regulatory and QA internships (FDA/EMA dossiers, GMP, GCP/ICH)
 - <picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/device-dark.svg"><img src="assets/icons/device-light.svg" width="16" alt=""></picture> **Medical device engineer:** M.Tech in Medical Device Innovation at IIT Hyderabad, built around the StrideMate exoskeleton
@@ -22,21 +29,6 @@ I move ideas from the lab bench to working prototypes.
 - <picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/interests-dark.svg"><img src="assets/icons/interests-light.svg" width="16" alt=""></picture> **Interested in:** digital health, healthy ageing, and how innovation actually reaches patients
 - <picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/languages-dark.svg"><img src="assets/icons/languages-light.svg" width="16" alt=""></picture> **Languages:** English, Hindi, Gujarati, Marathi (plus beginner German and Japanese)
 
-### Projects
+**Tools:** Python · Kotlin · C++ (ESP32) · Fusion 360 · 3D printing · Gemini API · Git
 
-**Building now**
-
-- [ink-health-watch](https://github.com/falakpat3l/ink-health-watch): open-source ESP32-S3 e-paper watch for steps, walking cadence and reminders. C++, PlatformIO.
-- [stride-local](https://github.com/falakpat3l/stride-local): offline, ad-free Android step and health tracker. No internet permission, no account. Kotlin, Jetpack Compose.
-
-**Earlier work**
-
-- [stridemate-exoskeleton](https://github.com/falakpat3l/stridemate-exoskeleton): low-cost dual-ESP32 walking-assist exoskeleton, firmware and Wi-Fi dashboard.
-- [exo-telemetry-tunnel](https://github.com/falakpat3l/exo-telemetry-tunnel): live gait dashboard for the exoskeleton, shareable over a Cloudflare tunnel.
-- [Stridemate_3D_files_IITH](https://github.com/falakpat3l/Stridemate_3D_files_IITH): Fusion 360, STEP and STL files for the exoskeleton, prostheses and thumb designs.
-- [persona-pipeline](https://github.com/falakpat3l/persona-pipeline): AI orchestration pipeline with a vision critic loop. Python, Gemini.
-- [qr-nfc-clinical-trials](https://github.com/falakpat3l/qr-nfc-clinical-trials): B.Pharm thesis, clinical trial management with QR codes and NFC.
-
-### Tools
-
-Python · Kotlin · C++ (ESP32) · Fusion 360 · 3D printing · Gemini API · Git
+</details>

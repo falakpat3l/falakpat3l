@@ -1,0 +1,184 @@
+{
+  "name": "Falak Ameesh Patel",
+  "tagline": "Medical device design: assistive and diagnostic hardware.",
+  "bio": "Pharmacist and medical device engineer (M.Tech, IIT Hyderabad). I move ideas from the lab bench to working prototypes, and I build privacy-first health tech.",
+  "sections": [
+    {
+      "label": "Building now",
+      "rows": [
+        [
+          {
+            "id": "padachar",
+            "kind": "big",
+            "repo": "padachar",
+            "title": "padachar",
+            "text": "Offline step and food tracker for Android. No internet, no ads, no account.",
+            "tags": "Kotlin · Jetpack Compose · v0.7 alpha",
+            "image": {
+              "light": "padachar-home.png",
+              "dark": "padachar-home.png",
+              "crop": [
+                0.0,
+                0.1,
+                1.0,
+                0.43
+              ],
+              "fit": "cover"
+            }
+          },
+          {
+            "id": "ink-health-watch",
+            "kind": "big",
+            "repo": "ink-health-watch",
+            "title": "ink-health-watch",
+            "text": "Open-source e-paper health watch on the ESP32-S3: steps, cadence and reminders.",
+            "tags": "C++ · PlatformIO · early prototype",
+            "image": {
+              "draw": "watch"
+            }
+          },
+          {
+            "id": "exo-telemetry",
+            "kind": "big",
+            "repo": "exo-telemetry-tunnel",
+            "title": "exo-telemetry-tunnel",
+            "text": "Live gait dashboard for StrideMate, shared on a public link with one command.",
+            "tags": "Python · standard library only",
+            "image": {
+              "light": "exo-light.png",
+              "dark": "exo-dark.png",
+              "crop": [
+                0.04,
+                0.02,
+                0.74,
+                0.72
+              ],
+              "fit": "cover"
+            }
+          }
+        ]
+      ]
+    },
+    {
+      "label": "Earlier work",
+      "rows": [
+        [
+          {
+            "id": "stridemate",
+            "kind": "wide",
+            "repo": "stridemate-exoskeleton",
+            "title": "StrideMate exoskeleton",
+            "text": "Low-cost walking-assist exoskeleton: two ESP32s, firmware and a Wi-Fi dashboard. M.Tech, IIT Hyderabad.",
+            "image": {
+              "light": "stridemate-light.png",
+              "dark": "stridemate-dark.png",
+              "trim": true,
+              "fit": "contain"
+            }
+          },
+          {
+            "id": "qr-nfc",
+            "kind": "wide",
+            "repo": "qr-nfc-clinical-trials",
+            "title": "qr-nfc-clinical-trials",
+            "text": "B.Pharm thesis: recording dosing events with QR codes and NFC. Runs offline in the browser.",
+            "image": {
+              "light": "qr.png",
+              "dark": "qr.png",
+              "crop": [
+                0.07,
+                0.355,
+                0.6,
+                0.64
+              ],
+              "fit": "contain",
+              "bg": "#ffffff"
+            }
+          }
+        ],
+        [
+          {
+            "id": "cad",
+            "kind": "small",
+            "repo": "Stridemate_3D_files_IITH",
+            "title": "StrideMate 3D files",
+            "text": "Fusion 360, STEP and STL, ready to print.",
+            "icon": "cube"
+          },
+          {
+            "id": "persona",
+            "kind": "small",
+            "repo": "persona-pipeline",
+            "title": "persona-pipeline",
+            "text": "AI pipeline where a vision model checks each image.",
+            "icon": "spark"
+          },
+          {
+            "id": "website",
+            "kind": "small",
+            "url": "https://falakpatel.com",
+            "title": "falakpatel.com",
+            "text": "My website, with the parts in 3D.",
+            "icon": "globe"
+          }
+        ]
+      ]
+    }
+  ],
+  "social": [
+    {
+      "title": "Website",
+      "url": "https://falakpatel.com",
+      "icon": "web"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://linkedin.com/in/falak-pat3l",
+      "icon": "linkedin"
+    },
+    {
+      "title": "Google Scholar",
+      "url": "https://scholar.google.com/citations?user=s6-Bs10AAAAJ",
+      "icon": "scholar"
+    },
+    {
+      "title": "X",
+      "url": "https://x.com/falakpat3l",
+      "icon": "x"
+    }
+  ],
+  "about": [
+    [
+      "pill",
+      "Pharmacist by training",
+      "B.Pharm (Pune University), registered pharmacist, regulatory and QA internships (FDA/EMA dossiers, GMP, GCP/ICH)"
+    ],
+    [
+      "device",
+      "Medical device engineer",
+      "M.Tech in Medical Device Innovation at IIT Hyderabad, built around the StrideMate exoskeleton"
+    ],
+    [
+      "clinic",
+      "Clinic first",
+      "180+ hours of clinical immersion in orthopaedics and neurology before designing anything"
+    ],
+    [
+      "ai",
+      "Now",
+      "building privacy-first health tech (an offline step tracker and an e-paper health watch) and AI workflows where models check each other's work"
+    ],
+    [
+      "interests",
+      "Interested in",
+      "digital health, healthy ageing, and how innovation actually reaches patients"
+    ],
+    [
+      "languages",
+      "Languages",
+      "English, Hindi, Gujarati, Marathi (plus beginner German and Japanese)"
+    ]
+  ],
+  "tools": "Python · Kotlin · C++ (ESP32) · Fusion 360 · 3D printing · Gemini API · Git",
+  "sponsor": "https://github.com/sponsors/falakpat3l"
+}
