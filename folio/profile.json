@@ -27,34 +27,60 @@
             }
           },
           {
-            "id": "ink-health-watch",
+            "id": "anukalpa",
             "kind": "big",
-            "repo": "ink-health-watch",
-            "title": "ink-health-watch",
-            "text": "Open-source e-paper health watch on the ESP32-S3: steps, cadence and reminders.",
-            "tags": "C++ · PlatformIO · early prototype",
+            "repo": "anukalpa",
+            "title": "anukalpa",
+            "text": "Find the generic behind a medicine brand: 160,000+ medicines from India, the US, Canada and the EU.",
+            "tags": "Web and Android · official data",
             "image": {
-              "draw": "watch"
-            }
-          },
-          {
-            "id": "exo-telemetry",
-            "kind": "big",
-            "repo": "exo-telemetry-tunnel",
-            "title": "exo-telemetry-tunnel",
-            "text": "Live gait dashboard for StrideMate, shared on a public link with one command.",
-            "tags": "Python · standard library only",
-            "image": {
-              "light": "exo-light.png",
-              "dark": "exo-dark.png",
+              "light": "anukalpa.png",
+              "dark": "anukalpa.png",
               "crop": [
-                0.04,
-                0.02,
-                0.74,
-                0.72
+                0.0,
+                0.36,
+                1.0,
+                0.86
               ],
               "fit": "cover"
             }
+          },
+          {
+            "id": "device-class",
+            "kind": "big",
+            "repo": "device-class",
+            "title": "Device Class Finder",
+            "text": "Find a medical device's likely risk class (A to D) under India's Medical Device Rules, 2017.",
+            "tags": "Web and Android · regulatory",
+            "image": {
+              "light": "device-class.png",
+              "dark": "device-class.png",
+              "crop": [
+                0.0,
+                0.22,
+                1.0,
+                0.74
+              ],
+              "fit": "cover"
+            }
+          }
+        ],
+        [
+          {
+            "id": "ink-health-watch",
+            "kind": "small",
+            "repo": "ink-health-watch",
+            "title": "ink-health-watch",
+            "text": "Open-source e-paper health watch on the ESP32-S3.",
+            "icon": "watch"
+          },
+          {
+            "id": "website",
+            "kind": "small",
+            "url": "https://falakpatel.com",
+            "title": "falakpatel.com",
+            "text": "My website, with the parts in 3D.",
+            "icon": "globe"
           }
         ]
       ]
@@ -98,12 +124,12 @@
         ],
         [
           {
-            "id": "cad",
+            "id": "exo-telemetry",
             "kind": "small",
-            "repo": "Stridemate_3D_files_IITH",
-            "title": "StrideMate 3D files",
-            "text": "Fusion 360, STEP and STL, ready to print.",
-            "icon": "cube"
+            "repo": "exo-telemetry-tunnel",
+            "title": "exo-telemetry-tunnel",
+            "text": "Live gait dashboard for StrideMate, on a public link.",
+            "icon": "pulse"
           },
           {
             "id": "persona",
@@ -114,12 +140,12 @@
             "icon": "spark"
           },
           {
-            "id": "website",
+            "id": "cad",
             "kind": "small",
-            "url": "https://falakpatel.com",
-            "title": "falakpatel.com",
-            "text": "My website, with the parts in 3D.",
-            "icon": "globe"
+            "repo": "Stridemate_3D_files_IITH",
+            "title": "StrideMate 3D files",
+            "text": "Fusion 360, STEP and STL, ready to print.",
+            "icon": "cube"
           }
         ]
       ]
@@ -166,7 +192,7 @@
     [
       "ai",
       "Now",
-      "building privacy-first health tech (an offline step tracker and an e-paper health watch) and AI workflows where models check each other's work"
+      "building privacy-first health tech: padachar (offline step tracker), anukalpa (brand to generic finder), Device Class Finder and an e-paper health watch, plus AI workflows where models check each other's work"
     ],
     [
       "interests",

@@ -186,6 +186,14 @@ def line_icon(d, kind, cx, cy, size, colour):
         pts = [(cx, cy - a), (cx + b, cy - b), (cx + a, cy), (cx + b, cy + b),
                (cx, cy + a), (cx - b, cy + b), (cx - a, cy), (cx - b, cy - b)]
         d.polygon(pts, outline=colour, width=w)
+    elif kind == "watch":
+        a, h = int(r * 0.55), int(r * 0.7)
+        d.rounded_rectangle((cx - a, cy - h, cx + a, cy + h), radius=int(r * 0.25), outline=colour, width=w)
+        d.line([(cx - a // 2, cy - h), (cx - a // 2, cy - r), (cx + a // 2, cy - r), (cx + a // 2, cy - h)], fill=colour, width=w)
+        d.line([(cx - a // 2, cy + h), (cx - a // 2, cy + r), (cx + a // 2, cy + r), (cx + a // 2, cy + h)], fill=colour, width=w)
+    elif kind == "pulse":
+        pts = [(-1, 0), (-0.45, 0), (-0.25, -0.6), (0.05, 0.7), (0.25, -0.2), (0.4, 0), (1, 0)]
+        d.line([(cx + int(x * r), cy + int(y * r)) for x, y in pts], fill=colour, width=w, joint="curve")
     elif kind == "globe":
         a = int(r * 0.9)
         d.ellipse((cx - a, cy - a, cx + a, cy + a), outline=colour, width=w)
@@ -277,9 +285,18 @@ def main():
     # Name, tagline and bio. The bio has a wide version for computers and a narrow one for phones.
     for theme in THEMES:
         size = save(draw_text_image([(p["name"], "regular", 34, "fg"), (p["tagline"], "italic", 16, "muted")], PAGE, theme), f"name-{theme}.png")
+        nsize = save(draw_text_image([(p["name"], "regular", 28, "fg"), (p["tagline"], "italic", 15, "muted")], 320, theme), f"name-narrow-{theme}.png")
         wide = save(draw_text_image([(p["bio"], "regular", 16, "fg")], PAGE, theme), f"bio-wide-{theme}.png")
         narrow = save(draw_text_image([(p["bio"], "regular", 16, "fg")], 320, theme), f"bio-narrow-{theme}.png")
-    html.append('<p align="center">' + themed("name", f'{p["name"]}. {p["tagline"]}', size=size) + "</p>")
+    # Name: a wide version for computers and a narrow one for phones, so the text stays readable.
+    html.append(
+        '<p align="center"><picture>'
+        f'<source media="(min-width: 1012px) and (prefers-color-scheme: dark)" srcset="assets/folio/name-dark.png" width="{size[0]}" height="{size[1]}" />'
+        f'<source media="(min-width: 1012px)" srcset="assets/folio/name-light.png" width="{size[0]}" height="{size[1]}" />'
+        '<source media="(prefers-color-scheme: dark)" srcset="assets/folio/name-narrow-dark.png" />'
+        f'<img src="assets/folio/name-narrow-light.png" alt="{p["name"]}. {p["tagline"]}" width="{nsize[0]}" height="{nsize[1]}" />'
+        "</picture></p>"
+    )
     html.append(
         '<p align="center"><picture>'
         f'<source media="(min-width: 1012px) and (prefers-color-scheme: dark)" srcset="assets/folio/bio-wide-dark.png" width="{wide[0]}" height="{wide[1]}" />'
@@ -291,6 +308,17 @@ def main():
     for theme in THEMES:
         size = save(draw_divider(theme), f"divider-{theme}.png")
     html.append('<p align="center">' + themed("divider", "", size=size) + "</p>")
+    html.append("")
+
+    # Links as small icons (the icons already live in assets/icons).
+    icons = []
+    for s in p["social"]:
+        icons.append(
+            f'<a href="{s["url"]}" title="{s["title"]}"><picture>'
+            f'<source media="(prefers-color-scheme: dark)" srcset="assets/icons/{s["icon"]}-dark.svg" />'
+            f'<img src="assets/icons/{s["icon"]}-light.svg" width="22" alt="{s["title"]}" /></picture></a>'
+        )
+    html.append('<p align="center">\n  ' + "&nbsp;&nbsp;&nbsp;\n  ".join(icons) + "\n</p>")
     html.append("")
 
     # Project cards, one section at a time.
@@ -311,17 +339,6 @@ def main():
             rows.append("".join(cells))
         html.append('<p align="center">' + "<br />".join(rows) + "</p>")
         html.append("")
-
-    # Links as small icons (the icons already live in assets/icons).
-    icons = []
-    for s in p["social"]:
-        icons.append(
-            f'<a href="{s["url"]}" title="{s["title"]}"><picture>'
-            f'<source media="(prefers-color-scheme: dark)" srcset="assets/icons/{s["icon"]}-dark.svg" />'
-            f'<img src="assets/icons/{s["icon"]}-light.svg" width="22" alt="{s["title"]}" /></picture></a>'
-        )
-    html.append('<p align="center">\n  ' + "&nbsp;&nbsp;&nbsp;\n  ".join(icons) + "\n</p>")
-    html.append("")
 
     # Sponsor button (works once GitHub Sponsors is turned on for the account).
     if p.get("sponsor"):
