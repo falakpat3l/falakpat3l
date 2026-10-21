@@ -5,10 +5,10 @@
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/divider-dark.png" /><img src="assets/folio/divider-light.png" alt="" width="160" height="18" /></picture></p>
 
 <p align="center">
-  <a href="https://falakpatel.com" title="Website"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/web-dark.svg" /><img src="assets/icons/web-light.svg" width="22" alt="Website" /></picture></a>&nbsp;&nbsp;&nbsp;
-  <a href="https://linkedin.com/in/falak-pat3l" title="LinkedIn"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/linkedin-dark.svg" /><img src="assets/icons/linkedin-light.svg" width="22" alt="LinkedIn" /></picture></a>&nbsp;&nbsp;&nbsp;
-  <a href="https://scholar.google.com/citations?user=s6-Bs10AAAAJ" title="Google Scholar"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/scholar-dark.svg" /><img src="assets/icons/scholar-light.svg" width="22" alt="Google Scholar" /></picture></a>&nbsp;&nbsp;&nbsp;
-  <a href="https://x.com/falakpat3l" title="X"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/x-dark.svg" /><img src="assets/icons/x-light.svg" width="22" alt="X" /></picture></a>
+  <a href="https://falakpatel.com" title="Website"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/web-dark.svg" /><img src="assets/icons/web-light.svg" width="22" height="22" alt="Website" /></picture></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://linkedin.com/in/falak-pat3l" title="LinkedIn"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/linkedin-dark.svg" /><img src="assets/icons/linkedin-light.svg" width="22" height="22" alt="LinkedIn" /></picture></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://scholar.google.com/citations?user=s6-Bs10AAAAJ" title="Google Scholar"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/scholar-dark.svg" /><img src="assets/icons/scholar-light.svg" width="22" height="22" alt="Google Scholar" /></picture></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://x.com/falakpat3l" title="X"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/x-dark.svg" /><img src="assets/icons/x-light.svg" width="22" height="22" alt="X" /></picture></a>
 </p>
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/label-building-now-dark.png" /><img src="assets/folio/label-building-now-light.png" alt="Building now" width="400" height="34" /></picture></p>

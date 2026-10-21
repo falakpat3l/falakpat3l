@@ -15,9 +15,10 @@ thin outlined cards with small corners, link blue for titles.
 """
 
 import json
+from html import escape as _escape
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
 FOLIO = ROOT / "folio"
@@ -47,6 +48,11 @@ FONT_FILES = {
     "italic": ["/System/Library/Fonts/Supplemental/Times New Roman Italic.ttf",
                "/usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf"],
 }
+
+
+def escape(text):
+    """Make text safe inside an HTML attribute (keeps apostrophes readable)."""
+    return _escape(text, quote=False).replace('"', "&quot;")
 
 
 def font(style, size):
@@ -93,17 +99,20 @@ def picture(spec, theme, t, w, h):
     if spec.get("trim"):
         bg = src.getpixel((0, 0))
         diff = Image.new("RGB", src.size, bg)
-        from PIL import ImageChops
         box = ImageChops.difference(src, diff).getbbox()
         if box:
             src = src.crop(box)
     W, H = w * S, h * S
     if spec.get("fit") == "contain":
-        fill = spec.get("bg", t["card"])
-        out = Image.new("RGB", (W, H), fill)
+        out = Image.new("RGB", (W, H), t["card"])
         scale = min((W - 24 * S) / src.width, (H - 24 * S) / src.height)
         small = src.resize((max(1, int(src.width * scale)), max(1, int(src.height * scale))), Image.LANCZOS)
-        out.paste(small, ((W - small.width) // 2, (H - small.height) // 2))
+        x, y = (W - small.width) // 2, (H - small.height) // 2
+        if spec.get("bg"):  # a small rounded tile behind the picture (a QR code needs a light background)
+            m = 6 * S
+            ImageDraw.Draw(out).rounded_rectangle((x - m, y - m, x + small.width + m, y + small.height + m),
+                                                  radius=6 * S, fill=spec["bg"])
+        out.paste(small, (x, y))
         return out
     scale = max(W / src.width, H / src.height)  # "cover": fill the box, cut the edges
     big = src.resize((int(src.width * scale) + 1, int(src.height * scale) + 1), Image.LANCZOS)
@@ -162,9 +171,19 @@ def draw_card(card, theme):
             line_icon(d, card["icon"], cx, cy, size, t["muted"])
             tw -= size + 8 * S
 
+    # Stop with a clear message instead of drawing text past the card's edge.
+    if d.textlength(card["title"], font=title_f) > tw:
+        raise SystemExit(f"Card '{card['id']}': the title is too long for a {card['kind']} card. Shorten it in profile.json.")
+    bottom = (y1 - pad - 16 * S) if card.get("tags") else (y1 - 6 * S)  # keep a small margin
+    lines = wrap(d, card["text"], text_f, tw)
+    if ty + 24 * S + (len(lines) - 1) * 19 * S + text_f.getbbox("gy")[3] > bottom:
+        raise SystemExit(f"Card '{card['id']}': the text needs {len(lines)} lines and does not fit. Shorten it in profile.json.")
+    if card.get("tags") and d.textlength(card["tags"], font=tag_f) > tw:
+        raise SystemExit(f"Card '{card['id']}': the tags line is too long. Shorten it in profile.json.")
+
     d.text((tx, ty), card["title"], font=title_f, fill=t["link"])
     ty += 24 * S
-    for line in wrap(d, card["text"], text_f, tw)[:3]:
+    for line in lines:
         d.text((tx, ty), line, font=text_f, fill=t["fg"])
         ty += 19 * S
     if card.get("tags"):
@@ -274,12 +293,30 @@ def themed(name_stub, alt, url=None, size=None, extra=""):
     """HTML that shows the light or dark image to match the viewer's theme."""
     w, h = size
     tag = (f'<picture><source media="(prefers-color-scheme: dark)" srcset="assets/folio/{name_stub}-dark.png" />'
-           f'<img src="assets/folio/{name_stub}-light.png" alt="{alt}" width="{w}" height="{h}"{extra} /></picture>')
-    return f'<a href="{url}">{tag}</a>' if url else tag
+           f'<img src="assets/folio/{name_stub}-light.png" alt="{escape(alt)}" width="{w}" height="{h}"{extra} /></picture>')
+    return f'<a href="{escape(url)}">{tag}</a>' if url else tag
+
+
+def check_files(p):
+    """Stop early if profile.json points at a picture or icon that is not there."""
+    missing = []
+    icons = [s["icon"] for s in p["social"]] + [row[0] for row in p["about"]]
+    for icon in icons:
+        missing += [f"assets/icons/{icon}-{theme}.svg" for theme in THEMES
+                    if not (ROOT / "assets" / "icons" / f"{icon}-{theme}.svg").exists()]
+    for section in p["sections"]:
+        for row in section["rows"]:
+            for card in row:
+                image = card.get("image", {})
+                missing += [f"folio/shots/{image[theme]}" for theme in THEMES
+                            if theme in image and not (SHOTS / image[theme]).exists()]
+    if missing:
+        raise SystemExit("Missing files:\n  " + "\n  ".join(sorted(set(missing))))
 
 
 def main():
     p = json.loads((FOLIO / "profile.json").read_text())
+    check_files(p)
     html = ["<!-- Made by folio/build.py from folio/profile.json. Edit those, then run: python3 folio/build.py -->", ""]
 
     # Name, tagline and bio. The bio has a wide version for computers and a narrow one for phones.
@@ -294,7 +331,7 @@ def main():
         f'<source media="(min-width: 1012px) and (prefers-color-scheme: dark)" srcset="assets/folio/name-dark.png" width="{size[0]}" height="{size[1]}" />'
         f'<source media="(min-width: 1012px)" srcset="assets/folio/name-light.png" width="{size[0]}" height="{size[1]}" />'
         '<source media="(prefers-color-scheme: dark)" srcset="assets/folio/name-narrow-dark.png" />'
-        f'<img src="assets/folio/name-narrow-light.png" alt="{p["name"]}. {p["tagline"]}" width="{nsize[0]}" height="{nsize[1]}" />'
+        f'<img src="assets/folio/name-narrow-light.png" alt="{escape(p["name"] + ". " + p["tagline"])}" width="{nsize[0]}" height="{nsize[1]}" />'
         "</picture></p>"
     )
     html.append(
@@ -302,7 +339,7 @@ def main():
         f'<source media="(min-width: 1012px) and (prefers-color-scheme: dark)" srcset="assets/folio/bio-wide-dark.png" width="{wide[0]}" height="{wide[1]}" />'
         f'<source media="(min-width: 1012px)" srcset="assets/folio/bio-wide-light.png" width="{wide[0]}" height="{wide[1]}" />'
         '<source media="(prefers-color-scheme: dark)" srcset="assets/folio/bio-narrow-dark.png" />'
-        f'<img src="assets/folio/bio-narrow-light.png" alt="{p["bio"]}" width="{narrow[0]}" height="{narrow[1]}" />'
+        f'<img src="assets/folio/bio-narrow-light.png" alt="{escape(p["bio"])}" width="{narrow[0]}" height="{narrow[1]}" />'
         "</picture></p>"
     )
     for theme in THEMES:
@@ -314,9 +351,9 @@ def main():
     icons = []
     for s in p["social"]:
         icons.append(
-            f'<a href="{s["url"]}" title="{s["title"]}"><picture>'
+            f'<a href="{escape(s["url"])}" title="{escape(s["title"])}"><picture>'
             f'<source media="(prefers-color-scheme: dark)" srcset="assets/icons/{s["icon"]}-dark.svg" />'
-            f'<img src="assets/icons/{s["icon"]}-light.svg" width="22" alt="{s["title"]}" /></picture></a>'
+            f'<img src="assets/icons/{s["icon"]}-light.svg" width="22" height="22" alt="{escape(s["title"])}" /></picture></a>'
         )
     html.append('<p align="center">\n  ' + "&nbsp;&nbsp;&nbsp;\n  ".join(icons) + "\n</p>")
     html.append("")
