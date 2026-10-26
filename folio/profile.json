@@ -13,7 +13,7 @@
             "repo": "padachar",
             "title": "padachar",
             "text": "Offline step and food tracker for Android. No internet, no ads, no account.",
-            "tags": "Kotlin · Jetpack Compose · v0.7 alpha",
+            "meta": "Play closed testing · v0.7.4",
             "image": {
               "light": "padachar-home.png",
               "dark": "padachar-home.png",
@@ -32,7 +32,7 @@
             "repo": "anukalpa",
             "title": "anukalpa",
             "text": "Find the generic behind a medicine brand: 160,000+ medicines from India, the US, Canada and the EU.",
-            "tags": "Web and Android · official data",
+            "meta": "Web + Android APK · v0.2.0",
             "image": {
               "light": "anukalpa.png",
               "dark": "anukalpa.png",
@@ -51,7 +51,7 @@
             "repo": "device-class",
             "title": "Device Class Finder",
             "text": "Find a medical device's likely risk class (A to D) under India's Medical Device Rules, 2017.",
-            "tags": "Web and Android · regulatory",
+            "meta": "Web + Android APK · v0.2.0",
             "image": {
               "light": "device-class.png",
               "dark": "device-class.png",
@@ -72,6 +72,7 @@
             "repo": "ink-health-watch",
             "title": "ink-health-watch",
             "text": "Open-source e-paper health watch on the ESP32-S3.",
+            "meta": "C++ · pre-release",
             "icon": "watch"
           },
           {
@@ -80,6 +81,7 @@
             "url": "https://falakpatel.com",
             "title": "falakpatel.com",
             "text": "My website, with the parts in 3D.",
+            "meta": "personal site",
             "icon": "globe"
           }
         ]
@@ -94,7 +96,8 @@
             "kind": "wide",
             "repo": "stridemate-exoskeleton",
             "title": "StrideMate exoskeleton",
-            "text": "Low-cost walking-assist exoskeleton: two ESP32s, firmware and a Wi-Fi dashboard. M.Tech, IIT Hyderabad.",
+            "text": "Low-cost walking-assist exoskeleton: two ESP32s, firmware and a Wi-Fi dashboard.",
+            "meta": "M.Tech, IIT Hyderabad · complete",
             "image": {
               "light": "stridemate-light.png",
               "dark": "stridemate-dark.png",
@@ -107,7 +110,8 @@
             "kind": "wide",
             "repo": "qr-nfc-clinical-trials",
             "title": "qr-nfc-clinical-trials",
-            "text": "B.Pharm thesis: recording dosing events with QR codes and NFC. Runs offline in the browser.",
+            "text": "Recording dosing events with QR codes and NFC. Runs offline in the browser.",
+            "meta": "B.Pharm thesis · published 2023",
             "image": {
               "light": "qr.png",
               "dark": "qr.png",
@@ -129,6 +133,7 @@
             "repo": "exo-telemetry-tunnel",
             "title": "exo-telemetry-tunnel",
             "text": "Live gait dashboard for StrideMate, on a public link.",
+            "meta": "Python · complete",
             "icon": "pulse"
           },
           {
@@ -137,6 +142,7 @@
             "repo": "persona-pipeline",
             "title": "persona-pipeline",
             "text": "AI pipeline where a vision model checks each image.",
+            "meta": "Python · complete · v1.1.0",
             "icon": "spark"
           },
           {
@@ -144,7 +150,8 @@
             "kind": "small",
             "repo": "Stridemate_3D_files_IITH",
             "title": "StrideMate 3D files",
-            "text": "Fusion 360, STEP and STL, ready to print.",
+            "text": "StrideMate parts as Fusion 360, STEP and STL, ready to print.",
+            "meta": "Fusion 360 · complete",
             "icon": "cube"
           }
         ]
@@ -171,6 +178,11 @@
       "title": "X",
       "url": "https://x.com/falakpat3l",
       "icon": "x"
+    },
+    {
+      "title": "Linktree",
+      "url": "https://linktr.ee/falakpatel",
+      "icon": "linktree"
     }
   ],
   "about": [
@@ -192,7 +204,7 @@
     [
       "ai",
       "Now",
-      "building privacy-first health tech: padachar (offline step tracker), anukalpa (brand to generic finder), Device Class Finder and an e-paper health watch, plus AI workflows where models check each other's work"
+      "building privacy-first health tech: padachar (offline step tracker, in Play closed testing), anukalpa (brand to generic finder), Device Class Finder and an e-paper health watch"
     ],
     [
       "interests",
