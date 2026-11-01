@@ -12,11 +12,13 @@ Run it from the repo folder after editing profile.json or a picture:
 
 The look matches falakpatel.com: near-black cards, a serif close to
 Times New Roman (Newsreader), small monospace labels (IBM Plex Mono),
-one soft blue accent and a thin line-drawn eye ("drishti" means vision).
+one soft blue accent and my logo: the Gujarati letter ફ (pha), my initial,
+turned on its side (folio/logo-bold.svg).
 Both fonts are in folio/fonts with their SIL Open Font Licence files.
 """
 
 import json
+import re
 from functools import lru_cache
 from html import escape as _escape
 from pathlib import Path
@@ -27,6 +29,7 @@ ROOT = Path(__file__).resolve().parent.parent
 FOLIO = ROOT / "folio"
 SHOTS = FOLIO / "shots"
 FONTS = FOLIO / "fonts"
+LOGO = FOLIO / "logo-bold.svg"  # the heavier cut of the logo, made for small sizes
 OUT = ROOT / "assets" / "folio"
 GITHUB = "https://github.com/falakpat3l/"
 
@@ -211,27 +214,74 @@ def line_icon(d, kind, cx, cy, size, colour):
         d.line([(cx - a, cy), (cx + a, cy)], fill=colour, width=w)
 
 
-def eye(d, cx, cy, half_w, t, width):
-    """A thin line-drawn eye: two lid curves, an iris and a small pupil."""
-    half_h = half_w * 0.5
-    steps = 48
+@lru_cache(maxsize=None)
+def logo_shapes():
+    """The logo's outlines from folio/logo-bold.svg, as lists of (x, y) points.
 
-    def lid(sign):
-        # A quadratic curve from corner to corner through the lid's middle.
-        pts = []
-        for i in range(steps + 1):
-            u = i / steps
-            x = cx - half_w + 2 * half_w * u
-            y = cy + sign * 4 * half_h * u * (1 - u)  # half_h at the middle
-            pts.append((x, y))
-        return pts
+    The path only uses M, L, Q and Z, and is flipped upside down by scale(1,-1).
+    """
+    d = re.search(r' d="([^"]+)"', LOGO.read_text()).group(1)
+    tokens = re.findall(r"[MLQZ]|-?[\d.]+(?:e-?\d+)?", d)
+    shapes, shape, cmd, pos, i = [], [], None, (0.0, 0.0), 0
+    while i < len(tokens):
+        if tokens[i] in "MLQZ":
+            cmd = tokens[i]
+            i += 1
+            if cmd == "Z":
+                shapes.append(shape)
+                shape = []
+            continue
+        nums = [float(v) for v in tokens[i:i + (4 if cmd == "Q" else 2)]]
+        i += len(nums)
+        if cmd == "Q":  # a curve: sample it as short straight steps
+            (cx, cy), (ex, ey) = nums[:2], nums[2:]
+            for k in range(1, 17):
+                u = k / 16
+                shape.append(((1 - u) ** 2 * pos[0] + 2 * (1 - u) * u * cx + u * u * ex,
+                              (1 - u) ** 2 * pos[1] + 2 * (1 - u) * u * cy + u * u * ey))
+            pos = (ex, ey)
+        else:  # M, or L (numbers after M also count as L)
+            pos = (nums[0], nums[1])
+            shape.append(pos)
+            cmd = "L" if cmd == "M" else cmd
+    if shape:
+        shapes.append(shape)
+    return [[(x, -y) for x, y in sh] for sh in shapes]
 
-    d.line(lid(-1), fill=t["muted"], width=width, joint="curve")
-    d.line(lid(1), fill=t["muted"], width=width, joint="curve")
-    r = half_h * 0.62
-    d.ellipse((cx - r, cy - r, cx + r, cy + r), outline=t["accent"], width=width)
-    p = r * 0.38
-    d.ellipse((cx - p, cy - p, cx + p, cy + p), fill=t["accent"])
+
+def logo(img, cx, cy, height, colour):
+    """Draw the logo centred on (cx, cy), `height` pixels tall, with smooth edges."""
+    shapes = logo_shapes()
+    xs = [x for sh in shapes for x, _ in sh]
+    ys = [y for sh in shapes for _, y in sh]
+    k = height / (max(ys) - min(ys))
+    width = (max(xs) - min(xs)) * k
+    left, top = int(cx - width / 2) - 1, int(cy - height / 2) - 1
+    W, H = int(width) + 4, int(height) + 4
+    ss = 4  # draw 4x larger again, then shrink, for clean curves
+    x_off, y_off = (cx - width / 2 - left) * ss, (cy - height / 2 - top) * ss
+    edges = []
+    for sh in shapes:
+        pts = [(x_off + (x - min(xs)) * k * ss, y_off + (y - min(ys)) * k * ss) for x, y in sh]
+        for (xa, ya), (xb, yb) in zip(pts, pts[1:] + pts[:1]):
+            if ya != yb:
+                edges.append((xa, ya, xb, yb, 1 if yb > ya else -1))
+    # Fill row by row with the "nonzero" rule, like a browser does (the letter's loop overlaps itself).
+    mask = bytearray(W * ss * H * ss)
+    for row in range(H * ss):
+        y = row + 0.5
+        hits = sorted((xa + (y - ya) * (xb - xa) / (yb - ya), s) for xa, ya, xb, yb, s in edges
+                      if ya <= y < yb or yb <= y < ya)
+        inside = 0
+        for (x, s), nxt in zip(hits, hits[1:]):
+            inside += s
+            if inside:
+                a, b = max(0, round(x)), min(W * ss, round(nxt[0]))
+                mask[row * W * ss + a:row * W * ss + b] = b"\xff" * max(0, b - a)
+    alpha = Image.frombytes("L", (W * ss, H * ss), bytes(mask)).resize((W, H), Image.BOX)
+    layer = Image.new("RGBA", (W, H), colour)
+    layer.putalpha(alpha)
+    img.alpha_composite(layer, (left, top))
 
 
 def draw_label(text, theme):
@@ -253,14 +303,14 @@ def draw_label(text, theme):
 
 
 def draw_divider(theme):
-    """A short line with a small open eye in the middle."""
+    """A short line with the small logo in the middle."""
     t = THEMES[theme]
     w, h = 200, 26
     img, d = canvas(w, h)
-    cx, cy, half = w * S // 2, h * S // 2, 15 * S
+    cx, cy, half = w * S // 2, h * S // 2, 13 * S  # the logo is 14 px tall and about 25 px wide
     d.line((16 * S, cy, cx - half - 10 * S, cy), fill=t["line"], width=S)
     d.line((cx + half + 10 * S, cy, w * S - 16 * S, cy), fill=t["line"], width=S)
-    eye(d, cx, cy, half, t, int(1.4 * S))
+    logo(img, cx, cy, 14 * S, t["accent"])
     return img
 
 
@@ -328,6 +378,8 @@ def check_files(p):
                 image = card.get("image", {})
                 missing += [f"folio/shots/{image[theme]}" for theme in THEMES
                             if theme in image and not (SHOTS / image[theme]).exists()]
+    if not LOGO.exists():
+        missing.append("folio/logo-bold.svg")
     for name in ("Newsreader.ttf", "Newsreader-Italic.ttf", "IBMPlexMono-Regular.ttf", "IBMPlexMono-Medium.ttf"):
         if not (FONTS / name).exists():
             missing.append(f"folio/fonts/{name}")
