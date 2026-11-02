@@ -1,221 +1,195 @@
 {
   "name": "Falak Ameesh Patel",
-  "tagline": "Medical device design: assistive and diagnostic hardware.",
-  "bio": "Pharmacist and medical device engineer (M.Tech, IIT Hyderabad). I move ideas from the lab bench to working prototypes, and I build privacy-first health tech.",
+  "role": "Pharmacist and medical device engineer",
+  "bio": "I make small health tools that work offline and keep your data on your phone, and I designed StrideMate, a walking-assist exoskeleton.",
+  "creds": [
+    ["M.Tech", "Medical Device Innovation, IIT Hyderabad"],
+    ["B.Pharm", "SPPU, and a registered pharmacist"],
+    ["Based in", "Bharuch, Gujarat"]
+  ],
+  "photo": "me.jpg",
+  "site": "falakpatel.com",
+  "editor": [
+    {
+      "path": "~/padachar/…/health/GoalProgress.kt",
+      "short": "~/padachar/…/GoalProgress.kt",
+      "lang": "kotlin",
+      "about": "padachar's daily step goal (Kotlin)",
+      "code": [
+        "/**",
+        " * Steps against the daily goal, for Home, the widget, the charts and the goal notice.",
+        " * Unlike [DayRings], nothing stops at 100%, so walking past the goal still shows.",
+        " * Pure Kotlin, unit tested.",
+        " */",
+        "object GoalProgress {",
+        "    fun reached(steps: Long, goal: Int): Boolean = goal > 0 && steps >= goal",
+        "",
+        "    /** \"+1,240 over your goal\", \"Right on your goal\", or \"\" before the goal is reached. */",
+        "    fun overText(steps: Long, goal: Int, locale: Locale = Locale.getDefault()): String = when {",
+        "        !reached(steps, goal) -> \"\"",
+        "        steps == goal.toLong() -> \"Right on your goal\"",
+        "        else -> String.format(locale, \"+%,d over your goal\", steps - goal)",
+        "    }",
+        "}"
+      ]
+    },
+    {
+      "path": "~/anukalpa/docs/app.js",
+      "short": "~/anukalpa/docs/app.js",
+      "lang": "javascript",
+      "about": "anukalpa's medicine strength matching (JavaScript)",
+      "code": [
+        "// The salt without its form: \"pantoprazole sodium\" -> \"pantoprazole\".",
+        "function bare(n) {",
+        "  var w = n.split(\" \");",
+        "  while (w.length > 1 && FORMS[w[w.length - 1]]) w.pop();",
+        "  return w.length === 1 && MINERALS[w[0]] ? n : w.join(\" \");",
+        "}",
+        "// Same salts AND same strength count as a match (e.g. paracetamol 500 mg), whatever the country.",
+        "// Plain weights are compared in mg, so \"1 g\" matches \"1000 mg\".",
+        "function strength(t) {",
+        "  var s = (t || \"\").toLowerCase().replace(/\\s+/g, \"\").replace(/micrograms?|µg|μg/g, \"mcg\").replace(/milligrams?/g, \"mg\");",
+        "  var m = /^(\\d*\\.?\\d+)(mcg|mg|g)$/.exec(s);",
+        "  return m ? +(parseFloat(m[1]) * {mcg: 0.001, mg: 1, g: 1000}[m[2]]).toFixed(6) + \"mg\" : s;",
+        "}"
+      ]
+    },
+    {
+      "path": "~/padachar/…/sensor/StepMath.kt",
+      "short": "~/padachar/…/StepMath.kt",
+      "lang": "kotlin",
+      "about": "padachar's step counter maths (Kotlin)",
+      "code": [
+        "fun compute(prevCounter: Long?, prevBoot: Int, counter: Long, boot: Int): Long {",
+        "    // First reading ever: it contains steps from before the app existed. Use as baseline only.",
+        "    if (prevCounter == null || prevCounter < 0) return 0",
+        "",
+        "    // Reboot detection. The counter restarts at 0 on boot, so every step since boot is new.",
+        "    val bootChanged = boot != UNKNOWN_BOOT && prevBoot != UNKNOWN_BOOT && boot != prevBoot",
+        "    val rebooted = bootChanged || counter < prevCounter",
+        "",
+        "    val delta = if (rebooted) counter else counter - prevCounter",
+        "    return if (delta in 0..MAX_PLAUSIBLE_DELTA) delta else 0",
+        "}"
+      ]
+    }
+  ],
   "sections": [
     {
       "label": "Building now",
-      "rows": [
-        [
-          {
-            "id": "padachar",
-            "kind": "big",
-            "repo": "padachar",
-            "title": "padachar",
-            "text": "Offline step and food tracker for Android. No internet, no ads, no account.",
-            "meta": "Play closed testing · v0.7.4",
-            "image": {
-              "light": "padachar-home.png",
-              "dark": "padachar-home.png",
-              "crop": [
-                0.0,
-                0.1,
-                1.0,
-                0.43
-              ],
-              "fit": "cover"
-            }
-          },
-          {
-            "id": "anukalpa",
-            "kind": "big",
-            "repo": "anukalpa",
-            "title": "anukalpa",
-            "text": "Find the generic behind a medicine brand: 160,000+ medicines from India, the US, Canada and the EU.",
-            "meta": "Web + Android APK · v0.2.0",
-            "image": {
-              "light": "anukalpa.png",
-              "dark": "anukalpa.png",
-              "crop": [
-                0.0,
-                0.36,
-                1.0,
-                0.86
-              ],
-              "fit": "cover"
-            }
-          },
-          {
-            "id": "device-class",
-            "kind": "big",
-            "repo": "device-class",
-            "title": "Device Class Finder",
-            "text": "Find a medical device's likely risk class (A to D) under India's Medical Device Rules, 2017.",
-            "meta": "Web + Android APK · v0.2.0",
-            "image": {
-              "light": "device-class.png",
-              "dark": "device-class.png",
-              "crop": [
-                0.0,
-                0.22,
-                1.0,
-                0.74
-              ],
-              "fit": "cover"
-            }
-          }
-        ],
-        [
-          {
-            "id": "ink-health-watch",
-            "kind": "small",
-            "repo": "ink-health-watch",
-            "title": "ink-health-watch",
-            "text": "Open-source e-paper health watch on the ESP32-S3.",
-            "meta": "C++ · pre-release",
-            "icon": "watch"
-          },
-          {
-            "id": "website",
-            "kind": "small",
-            "url": "https://falakpatel.com",
-            "title": "falakpatel.com",
-            "text": "My website, with the parts in 3D.",
-            "meta": "personal site",
-            "icon": "globe"
-          }
-        ]
+      "projects": [
+        {
+          "id": "padachar",
+          "repo": "padachar",
+          "title": "padachar",
+          "text": "Offline step and food tracker for Android. No internet, no ads, no account.",
+          "tag": "v0.7.4",
+          "status": "Play closed testing",
+          "state": "active"
+        },
+        {
+          "id": "anukalpa",
+          "repo": "anukalpa",
+          "title": "anukalpa",
+          "text": "Find the generic behind a medicine brand: 160,000+ medicines from India, the US, Canada and the EU.",
+          "tag": "v0.2.0",
+          "status": "web + Android",
+          "state": "active"
+        },
+        {
+          "id": "device-class",
+          "repo": "device-class",
+          "title": "Device Class Finder",
+          "text": "Find a medical device's likely risk class (A to D) under India's Medical Device Rules, 2017.",
+          "tag": "v0.2.0",
+          "status": "web + Android",
+          "state": "active"
+        },
+        {
+          "id": "ink-health-watch",
+          "repo": "ink-health-watch",
+          "title": "ink-health-watch",
+          "text": "Open-source e-paper health watch on the ESP32-S3.",
+          "tag": "proto",
+          "status": "early prototype",
+          "state": "proto"
+        },
+        {
+          "id": "website",
+          "url": "https://falakpatel.com",
+          "title": "falakpatel.com",
+          "text": "My website, with the StrideMate parts in 3D.",
+          "tag": "live",
+          "status": "personal site",
+          "state": "active"
+        }
       ]
     },
     {
       "label": "Earlier work",
-      "rows": [
-        [
-          {
-            "id": "stridemate",
-            "kind": "wide",
-            "repo": "stridemate-exoskeleton",
-            "title": "StrideMate exoskeleton",
-            "text": "Low-cost walking-assist exoskeleton: two ESP32s, firmware and a Wi-Fi dashboard.",
-            "meta": "M.Tech, IIT Hyderabad · complete",
-            "image": {
-              "light": "stridemate-light.png",
-              "dark": "stridemate-dark.png",
-              "trim": true,
-              "fit": "contain"
-            }
-          },
-          {
-            "id": "qr-nfc",
-            "kind": "wide",
-            "repo": "qr-nfc-clinical-trials",
-            "title": "qr-nfc-clinical-trials",
-            "text": "Recording dosing events with QR codes and NFC. Runs offline in the browser.",
-            "meta": "B.Pharm thesis · published 2023",
-            "image": {
-              "light": "qr.png",
-              "dark": "qr.png",
-              "crop": [
-                0.07,
-                0.355,
-                0.6,
-                0.64
-              ],
-              "fit": "contain",
-              "bg": "#ffffff"
-            }
-          }
-        ],
-        [
-          {
-            "id": "exo-telemetry",
-            "kind": "small",
-            "repo": "exo-telemetry-tunnel",
-            "title": "exo-telemetry-tunnel",
-            "text": "Live gait dashboard for StrideMate, on a public link.",
-            "meta": "Python · complete",
-            "icon": "pulse"
-          },
-          {
-            "id": "persona",
-            "kind": "small",
-            "repo": "persona-pipeline",
-            "title": "persona-pipeline",
-            "text": "AI pipeline where a vision model checks each image.",
-            "meta": "Python · complete · v1.1.0",
-            "icon": "spark"
-          },
-          {
-            "id": "cad",
-            "kind": "small",
-            "repo": "Stridemate_3D_files_IITH",
-            "title": "StrideMate 3D files",
-            "text": "StrideMate parts as Fusion 360, STEP and STL, ready to print.",
-            "meta": "Fusion 360 · complete",
-            "icon": "cube"
-          }
-        ]
+      "projects": [
+        {
+          "id": "stridemate",
+          "repo": "stridemate-exoskeleton",
+          "title": "StrideMate exoskeleton",
+          "text": "Low-cost walking-assist exoskeleton: two ESP32s, firmware and a Wi-Fi dashboard.",
+          "tag": "v1.4.0",
+          "status": "M.Tech, IIT Hyderabad · complete",
+          "state": "done"
+        },
+        {
+          "id": "exo-telemetry",
+          "repo": "exo-telemetry-tunnel",
+          "title": "exo-telemetry-tunnel",
+          "text": "Live gait dashboard for StrideMate, on a public link.",
+          "tag": "v1.1.1",
+          "status": "M.Tech, IIT Hyderabad · complete",
+          "state": "done"
+        },
+        {
+          "id": "cad",
+          "repo": "Stridemate_3D_files_IITH",
+          "title": "StrideMate 3D files",
+          "text": "StrideMate parts as Fusion 360, STEP and STL, ready to print.",
+          "tag": "CAD",
+          "status": "M.Tech, IIT Hyderabad · complete",
+          "state": "done"
+        },
+        {
+          "id": "qr-nfc",
+          "repo": "qr-nfc-clinical-trials",
+          "title": "qr-nfc-clinical-trials",
+          "text": "Recording dosing events with QR codes and NFC. Runs offline in the browser.",
+          "tag": "2023",
+          "status": "B.Pharm thesis · published",
+          "state": "done"
+        },
+        {
+          "id": "persona",
+          "repo": "persona-pipeline",
+          "title": "persona-pipeline",
+          "text": "AI pipeline where a vision model checks each image.",
+          "tag": "v1.1.0",
+          "status": "complete",
+          "state": "done"
+        }
       ]
     }
   ],
   "social": [
-    {
-      "title": "Website",
-      "url": "https://falakpatel.com",
-      "icon": "web"
-    },
-    {
-      "title": "LinkedIn",
-      "url": "https://linkedin.com/in/falak-pat3l",
-      "icon": "linkedin"
-    },
-    {
-      "title": "Google Scholar",
-      "url": "https://scholar.google.com/citations?user=s6-Bs10AAAAJ",
-      "icon": "scholar"
-    },
-    {
-      "title": "X",
-      "url": "https://x.com/falakpat3l",
-      "icon": "x"
-    },
-    {
-      "title": "Linktree",
-      "url": "https://linktr.ee/falakpatel",
-      "icon": "linktree"
-    }
+    {"title": "Website", "label": "website", "url": "https://falakpatel.com", "icon": "web"},
+    {"title": "LinkedIn", "label": "linkedin", "url": "https://linkedin.com/in/falak-pat3l", "icon": "linkedin"},
+    {"title": "Google Scholar", "label": "scholar", "url": "https://scholar.google.com/citations?user=s6-Bs10AAAAJ", "icon": "scholar"},
+    {"title": "X", "label": "x", "url": "https://x.com/falakpat3l", "icon": "x"},
+    {"title": "Linktree", "label": "linktree", "url": "https://linktr.ee/falakpatel", "icon": "linktree"}
   ],
   "about": [
-    [
-      "pill",
-      "Pharmacist by training",
-      "B.Pharm (Pune University), registered pharmacist, regulatory and QA internships (FDA/EMA dossiers, GMP, GCP/ICH)"
-    ],
-    [
-      "device",
-      "Medical device engineer",
-      "M.Tech in Medical Device Innovation at IIT Hyderabad, built around the StrideMate exoskeleton"
-    ],
-    [
-      "clinic",
-      "Clinic first",
-      "180+ hours of clinical immersion in orthopaedics and neurology before designing anything"
-    ],
-    [
-      "ai",
-      "Now",
-      "building privacy-first health tech: padachar (offline step tracker, in Play closed testing), anukalpa (brand to generic finder), Device Class Finder and an e-paper health watch"
-    ],
-    [
-      "interests",
-      "Interested in",
-      "digital health, healthy ageing, and how innovation actually reaches patients"
-    ],
-    [
-      "languages",
-      "Languages",
-      "English, Hindi, Gujarati, Marathi (plus beginner German and Japanese)"
-    ]
+    ["pill", "Pharmacist by training", "B.Pharm (Pune University), registered pharmacist, regulatory and QA internships (FDA/EMA dossiers, GMP, GCP/ICH)"],
+    ["device", "Medical device engineer", "M.Tech in Medical Device Innovation at IIT Hyderabad, built around the StrideMate exoskeleton"],
+    ["clinic", "Clinic first", "180+ hours of clinical immersion in orthopaedics and neurology before designing anything"],
+    ["ai", "Now", "building privacy-first health tech: padachar (offline step tracker, in Play closed testing), anukalpa (brand to generic finder), Device Class Finder and an e-paper health watch"],
+    ["interests", "Interested in", "digital health, healthy ageing, and how innovation actually reaches patients"],
+    ["languages", "Languages", "English, Hindi, Gujarati, Marathi (plus beginner German and Japanese)"]
   ],
   "tools": "Python · Kotlin · C++ (ESP32) · Fusion 360 · 3D printing · Gemini API · Git",
   "sponsor": "https://github.com/sponsors/falakpat3l"
